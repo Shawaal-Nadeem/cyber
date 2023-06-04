@@ -2,26 +2,173 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+  body{
+      overflow-x: hidden;
   }
-}
+ 
+  header nav a
+  {
+      text-decoration: none;
+  }
+  nav{
+      height: 6rem;
+      width: 100vw;
+      background: rgba(255, 255, 255, 0.04);
+      display: flex;
+      position:absolute;
+      z-index: 10;
+  }
+  .nav-links{
+      display: flex;
+      list-style: none;
+      width: 60vw;
+      justify-content:space-evenly;
+      align-items: center;
+      text-transform: uppercase;
+      margin-left: 37%;
+  }
+  .nav-links li a{
+      text-decoration: none;
+  }
+  .nav-links li {
+      position: relative;
+  }
+  .hamburger div{
+      width: 30px;
+      height:3px;
+      background: #f2f5f7;
+      margin: 5px;
+      transition: all 0.3s ease;
+  }
+  .hamburger{
+      display: none;
+  }
+      .navbtn-home{
+          width: 81px;
+        height: 41px;
+        font-family: 'Poppins',sans-serif;	
+        font-style: normal;
+        font-weight: 300;
+        font-size: 17px;
+        color: #FF8A00;
+        text-decoration: none;
+        }
+        .navbtn{
+          width: 81px;
+        height: 41px;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 17px;
+        line-height: 40px;
+        color: rgba(255, 255, 255, 0.5);
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        text-decoration: none;
+        transition: 0.5s all ease-in-out;
+        font-family: 'Poppins',sans-serif;	
+    }
+        .navbtn:hover{
+          color: #FF8A00;
+          text-decoration: none;
+          transform: scale(1.5);
+        }
+        .navbtn-home:hover{
+          color: #FF8A00;
+          text-decoration: none;
+        }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+
+  .home
+  {
+    font-family: 'Poppins',sans-serif;	
 }
+  .home div img
+  {
+    height: 127%;
+  }
+  .home div h1
+  {
+    color: #FFFFFF;
+    font-size: 80px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+ .home div p
+ {
+    color: #FFFFFF;
+    width: 35%;
+ }
+  /*Stying for small screens*/
+  @media screen and (max-width: 800px){
+      nav{
+          position: absolute;
+          z-index: 3;
+      }
+      .hamburger{
+          display:block;
+          position: absolute;
+          cursor: pointer;
+          right: 5%;
+          top: 50%;
+          transform: translate(-5%, -50%);
+          z-index: 2;
+          transition: all 0.7s ease;
+      }
+      .nav-links{
+          position: fixed;
+          background: #131418;
+          height: 100vh;
+          width: 100%;
+          flex-direction: column;
+          clip-path: circle(50px at 90% -20%);
+          -webkit-clip-path: circle(50px at 90% -10%);
+          transition: all 0.5s ease-out;
+          pointer-events: none;
+          margin-left: 0%;
+      }
+      .nav-links.open{
+          clip-path: circle(1000px at 90% -10%);
+          -webkit-clip-path: circle(1000px at 90% -10%);
+          pointer-events: all;
+      }
+      .nav-links li{
+          opacity: 0;
+      }
+      .nav-links li:nth-child(1){
+          transition: all 0.5s ease 0.2s;
+      }
+      .nav-links li:nth-child(2){
+          transition: all 0.5s ease 0.4s;
+      }
+      .nav-links li:nth-child(3){
+          transition: all 0.5s ease 0.6s;
+      }
+      .nav-links li:nth-child(4){
+          transition: all 0.5s ease 0.7s;
+      }
+      .nav-links li:nth-child(5){
+          transition: all 0.5s ease 0.8s;
+      }
+      .nav-links li:nth-child(6){
+          transition: all 0.5s ease 0.9s;
+          margin: 0;
+      }
+      .nav-links li:nth-child(7){
+          transition: all 0.5s ease 1s;
+          margin: 0;
+      }
+      li.fade{
+          opacity: 1;
+      }
+  }
+  /*Animating Hamburger Icon on Click*/
+  .toggle .line1{
+      transform: rotate(-45deg) translate(-5px,6px);
+  }
+  .toggle .line2{
+      transition: all 0.7s ease;
+      width:0;
+  }
+  .toggle .line3{
+      transform: rotate(45deg) translate(-5px,-6px);
+  }
